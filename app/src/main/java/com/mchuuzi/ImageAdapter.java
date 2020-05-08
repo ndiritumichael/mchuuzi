@@ -51,6 +51,8 @@ public class ImageAdapter extends PagerAdapter {
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE).dontAnimate()
                .into((ImageView) view.findViewById(R.id.image));
 
+        container.addView(view);
+
 
         return view;
     }
