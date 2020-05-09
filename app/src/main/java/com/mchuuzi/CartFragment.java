@@ -78,6 +78,7 @@ public class CartFragment extends Fragment {
         checkOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                listener.onClick();
                 //checkout here
             }
         });
