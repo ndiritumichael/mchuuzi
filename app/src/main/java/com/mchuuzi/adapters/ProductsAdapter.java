@@ -34,10 +34,10 @@ public class ProductsAdapter extends RecyclerView.Adapter <ProductsAdapter.Produ
     @Override
     public void onBindViewHolder(@NonNull ProductsViewHolder holder, int position) {
         holder.product_name.setText(productsList.get(position).getName());
-        String amount = "KSh :" + productsList.get(position).getPrice();
+        String amount = "KSh: " + productsList.get(position).getPrice();
         holder.product_amount.setText(amount);
         Picasso.get().load(productsList.get(position).getImage())
-                .centerInside()
+
                 .into(holder.products_image);
 
     }

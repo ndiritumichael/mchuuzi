@@ -1,19 +1,35 @@
 package com.mchuuzi.models;
 
-public class ProductsModel {
+import java.io.Serializable;
+
+public class ProductsModel implements Serializable {
     private String name;
-    private Float price;
+    private Double price;
     private int image;
+
+    private String description;
 
 
     public ProductsModel() {
     }
 
-    public ProductsModel(String name, Float price, int image) {
+    public ProductsModel(String name, Double price, int image, String description) {
         this.name = name;
         this.price = price;
         this.image = image;
+
+        this.description = description;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
 
     public String getName() {
         return name;
@@ -23,11 +39,11 @@ public class ProductsModel {
         this.name = name;
     }
 
-    public Float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
