@@ -1,5 +1,7 @@
 package com.mchuuzi.models;
 
+import androidx.annotation.Nullable;
+
 import java.io.Serializable;
 
 public class ProductsModel implements Serializable {
@@ -30,7 +32,6 @@ public class ProductsModel implements Serializable {
     }
 
 
-
     public String getName() {
         return name;
     }
@@ -53,5 +54,21 @@ public class ProductsModel implements Serializable {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        final ProductsModel product = (ProductsModel) obj;
+        if (product.name==null){
+            return  false;
+        }
+
+        return product.name.equals(this.name);
+
+
     }
 }

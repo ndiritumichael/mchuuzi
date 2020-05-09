@@ -13,17 +13,24 @@ public class Repository {
     private List<ProductsModel> productsModelList = new ArrayList<>();
     private static List<OrderItem> orderItems=new ArrayList<>();
 
-    public static List<OrderItem> getOrderItems() {
+   /* public static List<OrderItem> getOrderItems() {
         return orderItems;
-    }
+    }*/
 
 
-    public void addOrderItem(){
+    public static void addOrderItem(ProductsModel product){
+        ///first see if item is added
+
+         ///if added add only qauantity otherwise new
+
         orderItems.add(new OrderItem());
 
 
     }
-    private void removeOrderItem(){
+    private void removeOrderItem(OrderItem orderItem){
+
+        orderItems.remove(orderItem);
+
 
     }
 

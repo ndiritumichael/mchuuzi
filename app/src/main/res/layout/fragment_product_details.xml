@@ -49,6 +49,7 @@
         android:layout_width="match_parent"
         android:layout_below="@id/about"
         android:layout_marginTop="7dp"
+        android:id="@+id/description"
         android:text="An all time favourite, firmly packed the green cabbage is loaded with vitamins and antioxidants. Perfect when steamed, fried or raw in salads"
         android:layout_height="wrap_content"/>
 
