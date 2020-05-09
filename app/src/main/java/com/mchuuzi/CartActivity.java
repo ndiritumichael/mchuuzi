@@ -10,7 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
-public class CartActivity extends AppCompatActivity {
+public class CartActivity extends AppCompatActivity implements CartFragment.OnCheckoutClick {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,4 +24,9 @@ public class CartActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onClick() {
+
+
+    }
 }
