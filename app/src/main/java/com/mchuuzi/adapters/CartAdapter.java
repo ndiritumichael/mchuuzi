@@ -45,13 +45,13 @@ public class CartAdapter  extends RecyclerView.Adapter <CartViewHolder>{
 }
 
 
-class CartViewHolder extends RecyclerView.ViewHolder {
+ class CartViewHolder extends RecyclerView.ViewHolder {
 
 
     private List<OrderItem> orderItems;
 
 
-    public CartViewHolder(@NonNull View itemView,List<OrderItem> orderItems) {
+     CartViewHolder(@NonNull View itemView, List<OrderItem> orderItems) {
         super(itemView);
     }
 }
