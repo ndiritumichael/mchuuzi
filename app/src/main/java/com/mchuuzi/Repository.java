@@ -1,5 +1,6 @@
 package com.mchuuzi;
 
+import com.mchuuzi.models.OrderItem;
 import com.mchuuzi.models.ProductsModel;
 
 import java.util.ArrayList;
@@ -10,6 +11,25 @@ public class Repository {
     //THe repository class provides dummy data mimicking a database or online source
 
     private List<ProductsModel> productsModelList = new ArrayList<>();
+    private static List<OrderItem> orderItems=new ArrayList<>();
+
+    public static List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+
+    public void addOrderItem(){
+        orderItems.add(new OrderItem());
+
+
+    }
+    private void removeOrderItem(){
+
+    }
+
+
+
+
 
     private String Kales, Frenchbeans, Carrots, Cabbages, oranges, Onions, Spinach, banana, Sweet_peppers, apples, pineapples;
 
@@ -47,4 +67,6 @@ public class Repository {
 
         return productsModelList;
     }
+
+
 }
