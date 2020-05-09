@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingStart="30dp"
+    android:paddingEnd="30dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ProductDetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <include layout="@layout/image_carousel"
+        android:id="@+id/images"/>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="Bioni Organic White Spelt Fusilli"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/colorBlack"
+        android:textSize="26sp"
+        android:layout_below="@id/images"
+        android:id="@+id/name"
+        android:layout_height="wrap_content"/>
 
-</FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="$9.99"
+        android:textSize="20sp"
+
+        android:layout_marginTop="7dp"
+        android:textStyle="bold"
+        android:layout_below="@id/name"
+        android:id="@+id/price"
+        android:layout_alignParentEnd="true"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="About the product"
+        android:layout_below="@id/price"
+        android:layout_marginTop="7sp"
+        android:textSize="16sp"
+        android:id="@+id/about"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_below="@id/about"
+        android:layout_marginTop="7dp"
+        android:text="An all time favourite, firmly packed the green cabbage is loaded with vitamins and antioxidants. Perfect when steamed, fried or raw in salads"
+        android:layout_height="wrap_content"/>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        app:cornerRadius="30dp"
+        android:text="Add to cart"
+        android:backgroundTint="@color/colorYellow"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/colorBlack"
+        android:textAllCaps="false"
+        android:minHeight="55dp"
+        android:minWidth="170dp"
+        android:layout_height="wrap_content"/>
+
+
+
+</RelativeLayout>

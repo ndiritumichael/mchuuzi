@@ -23,12 +23,12 @@ public class CartFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
+       /* view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(CartFragment.this)
                         .navigate(R.id.action_CartFragment_to_ProductFragment);
             }
-        });
+        });*/
     }
 }

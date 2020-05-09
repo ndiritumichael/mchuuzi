@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/ProductFragment"
-        android:name="com.mchuuzi.ProductFragment"
+        android:name="com.mchuuzi.CartFragment"
         android:label="@string/product_fragment_label"
         tools:layout="@layout/fragment_product">
 
