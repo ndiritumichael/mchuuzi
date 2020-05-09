@@ -47,7 +47,7 @@ public class CartFragment extends Fragment {
     }
 
 
-    void initComponents(){
+   private void initComponents(){
 
         ///repository = new Repository();
         orderItemList =  new ArrayList<>();
@@ -57,5 +57,14 @@ public class CartFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+    }
+
+    public static CartFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        CartFragment fragment = new CartFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }
