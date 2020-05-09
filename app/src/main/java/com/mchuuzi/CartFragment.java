@@ -1,9 +1,11 @@
 package com.mchuuzi;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -22,6 +24,14 @@ public class CartFragment extends Fragment {
     private CartAdapter adapter;
     private RecyclerView recyclerView;
     private List<OrderItem> orderItemList;
+    private OnCheckoutClick listener;
+    private Button checkOut;
+
+
+    interface OnCheckoutClick {
+        void onClick();
+
+    }
 
     @Override
     public View onCreateView(
@@ -32,9 +42,18 @@ public class CartFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_cart, container, false);
     }
 
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        listener=(OnCheckoutClick)context;
+
+    }
+
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = view.findViewById(R.id.products_recycler);
+        recyclerView = view.findViewById(R.id.cart_recycler);
+        checkOut=view.findViewById(R.id.checkout);
         initComponents();
 
        /* view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
@@ -47,7 +66,7 @@ public class CartFragment extends Fragment {
     }
 
 
-    void initComponents(){
+   private void initComponents(){
 
         ///repository = new Repository();
         orderItemList =  new ArrayList<>();
@@ -56,6 +75,22 @@ public class CartFragment extends Fragment {
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        checkOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //checkout here
+            }
+        });
 
+
+    }
+
+    public static CartFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        CartFragment fragment = new CartFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

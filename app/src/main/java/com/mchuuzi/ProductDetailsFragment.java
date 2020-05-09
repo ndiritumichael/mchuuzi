@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mchuuzi.models.ProductsModel;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,5 +25,15 @@ public class ProductDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_product_details, container, false);
+    }
+
+
+    public static ProductDetailsFragment newInstance(ProductsModel product) {
+
+        Bundle args = new Bundle();
+
+        ProductDetailsFragment fragment = new ProductDetailsFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }
