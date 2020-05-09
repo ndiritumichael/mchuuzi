@@ -1,4 +1,4 @@
 package com.mchuuzi.models;
 
-public class Cart {
+public class OrderItem {
 }
