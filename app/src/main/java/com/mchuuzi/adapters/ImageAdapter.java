@@ -1,4 +1,4 @@
-package com.mchuuzi;
+package com.mchuuzi.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,8 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.mchuuzi.models.Images;
+import com.mchuuzi.R;
 
 import java.util.List;
 

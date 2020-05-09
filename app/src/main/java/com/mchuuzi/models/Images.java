@@ -1,4 +1,4 @@
-package com.mchuuzi;
+package com.mchuuzi.models;
 
 public class Images {
 
