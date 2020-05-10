@@ -33,6 +33,23 @@ public class Repository {
 
     }
 
+
+    public static int total() {
+        int total = 0;
+
+        for (int i = 0; i < Repository.orderItems.size(); i++) {
+            OrderItem  orderItem =Repository.orderItems.get(i);
+            total+=orderItem.getQuantity()*orderItem.getPrice();
+        }
+
+
+        return total;
+
+    }
+
+
+
+
     public static synchronized void addOrderItem(ProductsModel product) {
         ///first see if item is added
 
