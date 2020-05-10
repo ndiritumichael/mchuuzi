@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.mchuuzi.models.OrderItem;
 import com.mchuuzi.models.ProductsModel;
+import com.mchuuzi.models.Vendors;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,6 +15,7 @@ public class Repository {
 
     private List<ProductsModel> productsModelList = new ArrayList<>();
     public static List<OrderItem> orderItems = new ArrayList<>();
+    private List<Vendors> vendorsList = new ArrayList<>();
 
    /* public static List<OrderItem> getOrderItems() {
         return orderItems;
@@ -118,6 +120,16 @@ public class Repository {
 
 
         return productsModelList;
+    }
+
+    public List<Vendors> getVendorsList() {
+        Vendors vendor1 = new Vendors("Muriuki Grocers", "Westlands", R.drawable.grocery2);
+        Vendors vendor2 = new Vendors("Kibaki Vendors", "Juja", R.drawable.grocery1);
+        Vendors vendor3 = new Vendors("Njonjo Greens", "Thika", R.drawable.grocery3);
+
+        vendorsList.addAll(Arrays.asList(vendor1, vendor2, vendor3));
+
+        return vendorsList;
     }
 
 

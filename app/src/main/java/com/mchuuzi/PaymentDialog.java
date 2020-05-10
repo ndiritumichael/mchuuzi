@@ -1,5 +1,6 @@
 package com.mchuuzi;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,9 +51,21 @@ public class PaymentDialog extends DialogFragment implements View.OnClickListene
         }
     }
 
+    interface OnPaymentDialogOkClickListener{
+        void closeCart();
+    }
+    private OnPaymentDialogOkClickListener paymentDialogOkClickListener;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        paymentDialogOkClickListener = (OnPaymentDialogOkClickListener)context;
+    }
+
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.btn_paymentdialog_ok){
+            paymentDialogOkClickListener.closeCart(); // exit cart when payment successful
             dismiss();
         }
     }
