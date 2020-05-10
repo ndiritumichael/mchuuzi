@@ -1,7 +1,9 @@
 package com.mchuuzi;
 
 import com.mchuuzi.models.ProductsModel;
+import com.mchuuzi.models.Vendors;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +12,7 @@ public class Repository {
     //THe repository class provides dummy data mimicking a database or online source
 
     private List<ProductsModel> productsModelList = new ArrayList<>();
+    private List<Vendors> vendorsList = new ArrayList<>();
 
     private String Kales, Frenchbeans, Carrots, Cabbages, oranges, Onions, Spinach, banana, Sweet_peppers, apples, pineapples;
 
@@ -46,5 +49,16 @@ public class Repository {
 
 
         return productsModelList;
+    }
+
+
+    public List<Vendors> getVendorsList() {
+        Vendors vendor1 = new Vendors("Muriuki Grocers", "Westlands", R.drawable.grocery2);
+        Vendors vendor2 = new Vendors("Kibaki Vendors", "Juja", R.drawable.grocery1);
+        Vendors vendor3 = new Vendors("Njonjo Greens", "Thika", R.drawable.grocery3);
+
+        vendorsList.addAll(Arrays.asList(vendor1, vendor2, vendor3));
+
+        return vendorsList;
     }
 }

@@ -25,4 +25,15 @@
             android:id="@+id/action_CartFragment_to_ProductFragment"
             app:destination="@id/ProductFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/vendors_frag"
+        android:name="com.mchuuzi.models.Vendors_Fragment"
+        android:label="3rd fragment"
+        tools:layout="@layout/fragment_vendors_">
+        <action
+            android:id="@+id/action_vendor_fragmentto_ProductFragment"
+            app:destination="@id/ProductFragment" />
+
+
+    </fragment>
 </navigation>
