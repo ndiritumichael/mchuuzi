@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.hover.ApiKey"
+            android:value="27dc9c91be58de0008dca0257aa55884"/>
+
         <activity
             android:name=".CartActivity"
             android:label="@string/title_activity_cart"
@@ -27,6 +32,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".TransactionReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.mchuuzi.CONFIRMED_TRANSACTION"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

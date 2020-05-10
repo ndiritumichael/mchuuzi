@@ -69,7 +69,7 @@ public class CartFragment extends Fragment {
    private void initComponents(){
 
         ///repository = new Repository();
-        orderItemList =  new ArrayList<>();
+        orderItemList = Repository.orderItems ;
 
         adapter = new CartAdapter(orderItemList,getActivity());
 
