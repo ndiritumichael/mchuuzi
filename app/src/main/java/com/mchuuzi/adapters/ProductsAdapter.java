@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductsAdapter extends RecyclerView.Adapter <ProductsAdapter.ProductsViewHolder>{
+public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder> {
 
     private List<ProductsModel> productsList = new ArrayList<>();
 
@@ -27,7 +27,7 @@ public class ProductsAdapter extends RecyclerView.Adapter <ProductsAdapter.Produ
     @NonNull
     @Override
     public ProductsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View productsview = LayoutInflater.from(parent.getContext()).inflate(R.layout.productsadapterlayout,parent,false);
+        View productsview = LayoutInflater.from(parent.getContext()).inflate(R.layout.productsadapterlayout, parent, false);
         return new ProductsViewHolder(productsview);
     }
 
@@ -44,20 +44,21 @@ public class ProductsAdapter extends RecyclerView.Adapter <ProductsAdapter.Produ
 
     @Override
     public int getItemCount() {
-        if(productsList != null){
+        if (productsList != null) {
             return productsList.size();
-        }else
+        } else
             return 0;
     }
 
-    public class ProductsViewHolder extends RecyclerView.ViewHolder{
-        private MaterialTextView product_amount,product_name;
+    public class ProductsViewHolder extends RecyclerView.ViewHolder {
+        private MaterialTextView product_amount, product_name;
         private ImageView products_image;
+
         public ProductsViewHolder(@NonNull View itemView) {
             super(itemView);
             product_amount = itemView.findViewById(R.id.products_amount_tv);
             product_name = itemView.findViewById(R.id.products_name_tv);
-            products_image  = itemView.findViewById(R.id.products_imageview);
+            products_image = itemView.findViewById(R.id.products_imageview);
         }
     }
 }

@@ -1,5 +1,8 @@
 package com.mchuuzi;
 
+import android.util.Log;
+
+import com.mchuuzi.models.OrderItem;
 import com.mchuuzi.models.ProductsModel;
 
 import java.util.ArrayList;
@@ -10,6 +13,75 @@ public class Repository {
     //THe repository class provides dummy data mimicking a database or online source
 
     private List<ProductsModel> productsModelList = new ArrayList<>();
+    public static List<OrderItem> orderItems = new ArrayList<>();
+
+   /* public static List<OrderItem> getOrderItems() {
+        return orderItems;
+    }*/
+
+
+    public static int itemCount() {
+        int total = 0;
+
+        for (int i = 0; i < Repository.orderItems.size(); i++) {
+            OrderItem  orderItem =Repository.orderItems.get(i);
+            total+=orderItem.getQuantity();
+        }
+
+
+        return total;
+
+    }
+
+
+    public static int total() {
+        int total = 0;
+
+        for (int i = 0; i < Repository.orderItems.size(); i++) {
+            OrderItem  orderItem =Repository.orderItems.get(i);
+            total+=orderItem.getQuantity()*orderItem.getPrice();
+        }
+
+
+        return total;
+
+    }
+
+
+
+
+    public static synchronized void addOrderItem(ProductsModel product) {
+        ///first see if item is added
+
+        ///if added add only qauantity otherwise new
+        OrderItem orderItem = new OrderItem();
+        orderItem.setName(product.getName());
+        if (Repository.orderItems.contains(orderItem)) {
+            Log.e("contained", orderItem.toString());
+            orderItem = Repository.orderItems.get(Repository.orderItems.indexOf(orderItem));
+
+            Repository.orderItems.get(Repository.orderItems.indexOf(orderItem)).setQuantity(orderItem.getQuantity() + 1);
+            return;
+        }
+        Log.e(" not contained", orderItem.toString());
+
+        orderItem.setQuantity(1);
+        orderItem.setPrice(product.getPrice());
+        orderItem.setImage(product.getImage());
+
+
+        orderItems.add(orderItem);
+
+
+    }
+
+    private void removeOrderItem(OrderItem orderItem) {
+
+        orderItems.remove(orderItem);
+
+
+    }
+
 
     private String Kales, Frenchbeans, Carrots, Cabbages, oranges, Onions, Spinach, banana, Sweet_peppers, apples, pineapples;
 
@@ -47,4 +119,6 @@ public class Repository {
 
         return productsModelList;
     }
+
+
 }
