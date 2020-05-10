@@ -1,16 +1,19 @@
 package com.mchuuzi;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.button.MaterialButton;
 import com.mchuuzi.models.ProductsModel;
 import com.squareup.picasso.Picasso;
 
@@ -22,7 +25,7 @@ public class ProductDetailsFragment extends Fragment {
     private TextView productName, productAmount, productDescription;
     private ImageView productImage;
     private ProductsModel product;
-
+   private MaterialButton addToCart  ;
 
     public ProductDetailsFragment() {
         // Required empty public constructor
@@ -50,6 +53,7 @@ public class ProductDetailsFragment extends Fragment {
         productAmount = view.findViewById(R.id.price);
         productDescription = view.findViewById(R.id.description);
         productImage = view.findViewById(R.id.image);
+        addToCart=view.findViewById(R.id.add_to_cart);
         initComponents();
 
     }
@@ -64,7 +68,7 @@ public class ProductDetailsFragment extends Fragment {
         return fragment;
     }
 
-    void initComponents() {
+    private void initComponents() {
 
         productName.setText(product.getName());
         productDescription.setText(product.getDescription());
@@ -74,6 +78,17 @@ public class ProductDetailsFragment extends Fragment {
         Picasso.get().load(product.getImage())
 
                 .into(productImage);
+
+        addToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Repository.addOrderItem(product);
+                ((ProductDetailsActivity)getActivity()).updateCart();
+                Log.e("order items list", Repository.orderItems.toString());
+                Log.e("added item items list", Repository.orderItems.get(0).toString());
+                ///Toast.makeText(getActivity(), String.valueOf(Repository.orderItems.size()), Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
