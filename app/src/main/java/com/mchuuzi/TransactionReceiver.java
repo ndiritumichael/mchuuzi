@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class TransactionReceiver extends BroadcastReceiver {
     public TransactionReceiver() { }
@@ -35,9 +37,10 @@ public class TransactionReceiver extends BroadcastReceiver {
 
             String [] arr = {confirmationCode, amount, recipientName, recipientPhone, date, time, balance, fee};
             Intent toActivityIntent = new Intent("HoverReceiver");
-            toActivityIntent.putExtra("message", arr);
+            toActivityIntent.putExtra("HOVER MESSAGE", arr);
+
             context.sendBroadcast(toActivityIntent);
-            Log.e("Hover Receiver", "data: " + confirmationCode+amount+recipientName+recipientPhone+date+time+balance+fee);
+//            Log.e("Hover Receiver", "data: " + confirmationCode+amount+recipientName+recipientPhone+date+time+balance+fee);
         }else{
             Log.e("Hover Receiver", "no parsed variables");
         }

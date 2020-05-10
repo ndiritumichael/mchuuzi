@@ -41,8 +41,6 @@ public class ProductFragment extends Fragment {
        recyclerView = view.findViewById(R.id.products_recycler);
        initComponents();
 
-
-
         FloatingActionButton fab = view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
