@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -65,8 +66,13 @@ public class ProductDetailsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.action_cart) {
-            Intent intent = new Intent(this, CartActivity.class);
-            startActivity(intent);
+
+            if (Repository.itemCount() > 0) {
+                Intent intent = new Intent(this, CartActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "Your Cart Is Empty", Toast.LENGTH_SHORT).show();
+            }
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -90,8 +96,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
     }
 
 
-    public void  updateCart(){
-     setupBadge();
+    public void updateCart() {
+        setupBadge();
     }
 
 
