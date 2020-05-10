@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".models.Vendors_Fragment">
+    tools:context=".Vendors_Fragment"
+    android:background="@color/teal">
 
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/vendorslist"

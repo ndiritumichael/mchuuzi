@@ -1,5 +1,6 @@
 package com.mchuuzi;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -13,8 +14,9 @@ import androidx.navigation.NavHostController;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ProductFragment.OnFabClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,16 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void goToCart() {
+        if (Repository.itemCount() > 0) {
+            Intent intent = new Intent(this, CartActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Your Cart Is Empty", Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.mchuuzi;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.mchuuzi.adapters.ProductsAdapter;
+import com.mchuuzi.adapters.VendorsAdapter;
 import com.mchuuzi.interfaces.OnProductItemClickedListener;
 import com.mchuuzi.models.ProductsModel;
 
@@ -23,7 +25,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.util.List;
 
-public class ProductFragment extends Fragment {
+public class ProductFragment extends Fragment  {
     private  Repository repository;
     private ProductsAdapter adapter;
     private RecyclerView recyclerView;
@@ -48,12 +50,24 @@ public class ProductFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(ProductFragment.this)
-                        .navigate(R.id.action_ProductFragment_to_CartFragment);
-                Snackbar.make(view, "To Cart", Snackbar.LENGTH_SHORT)
-                        .setAction("Action", null).show();
+                fabClickListener.goToCart();
             }
         });
+    }
+
+    public interface OnFabClickListener{
+        void goToCart();
+    }
+    private OnFabClickListener fabClickListener;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            fabClickListener = (OnFabClickListener)context;
+        } catch (Exception e){
+            Log.e("ProductFragment", "on attach cast error");
+        }
     }
 
     void initComponents(){
@@ -68,10 +82,6 @@ public class ProductFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-
-
-
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL));

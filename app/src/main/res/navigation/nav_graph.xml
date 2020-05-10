@@ -3,38 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/ProductFragment">
+    app:startDestination="@id/VendorsFragment">
+
+    <fragment
+        android:id="@+id/VendorsFragment"
+        android:name="com.mchuuzi.Vendors_Fragment"
+        android:label="VendorsFragment"
+        tools:layout="@layout/fragment_vendors">
+        <action
+            android:id="@+id/action_VendorsFragment_to_ProductFragment"
+            app:destination="@id/ProductFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/ProductFragment"
         android:name="com.mchuuzi.ProductFragment"
         android:label="@string/product_fragment_label"
         tools:layout="@layout/fragment_product">
-
-        <action
-            android:id="@+id/action_ProductFragment_to_CartFragment"
-            app:destination="@id/CartFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/CartFragment"
-        android:name="com.mchuuzi.CartFragment"
-        android:label="@string/cart_fragment_label"
-        tools:layout="@layout/fragment_cart">
-
-        <action
-            android:id="@+id/action_CartFragment_to_ProductFragment"
-            app:destination="@id/ProductFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/vendors_frag"
-        android:name="com.mchuuzi.Vendors_Fragment"
-        android:label="3rd fragment"
-        tools:layout="@layout/fragment_vendors_">
-        <action
-            android:id="@+id/action_vendor_fragmentto_ProductFragment"
-            app:destination="@id/ProductFragment" />
+<!--    <fragment-->
+<!--        android:id="@+id/CartFragment"-->
+<!--        android:name="com.mchuuzi.CartFragment"-->
+<!--        android:label="@string/cart_fragment_label"-->
+<!--        tools:layout="@layout/fragment_cart">-->
 
+<!--        <action-->
+<!--            android:id="@+id/action_CartFragment_to_ProductFragment"-->
+<!--            app:destination="@id/ProductFragment" />-->
+<!--    </fragment>-->
 
-    </fragment>
 </navigation>

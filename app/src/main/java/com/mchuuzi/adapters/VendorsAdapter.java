@@ -1,12 +1,15 @@
 package com.mchuuzi.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textview.MaterialTextView;
@@ -26,6 +29,11 @@ public class VendorsAdapter extends RecyclerView.Adapter<VendorsAdapter.VendorVi
     public VendorsAdapter(List<Vendors> vendorsList) {
         this.vendorsList = vendorsList;
     }
+
+    public interface OnItemClickListener{
+        void openVendor(int position);
+    }
+    private OnItemClickListener itemClickListener;
 
     @NonNull
     @Override
@@ -61,12 +69,23 @@ public class VendorsAdapter extends RecyclerView.Adapter<VendorsAdapter.VendorVi
             vendorlocation = itemView.findViewById(R.id.vendor_location);
             vendorname = itemView.findViewById(R.id.vendor_name);
             circleImageView = itemView.findViewById(R.id.vendor_image);
+            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-
-
+            int position = getAdapterPosition();
+            if(itemClickListener != null && position != RecyclerView.NO_POSITION){
+                itemClickListener.openVendor(position);
+            }
         }
     }
+
+    public void addItemClickListener(OnItemClickListener listener){
+        itemClickListener = listener;
+    }
+    public void removeItemClickListener(){
+        itemClickListener = null;
+    }
+
 }

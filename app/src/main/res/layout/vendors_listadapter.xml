@@ -9,7 +9,8 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/vendor_image"
@@ -32,18 +33,15 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/materialTextView"
-                style="@style/TextAppearance.MaterialComponents.Headline6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="Name"
-
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/vendor_name"
-                style="@style/TextAppearance.MaterialComponents.Headline6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
@@ -63,16 +61,15 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView"
-                style="@style/TextAppearance.MaterialComponents.Headline6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textStyle="bold"
+                android:textSize="16sp"
                 android:text="Location" />
 
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/vendor_location"
-                style="@style/TextAppearance.MaterialComponents.Headline6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"

@@ -25,7 +25,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class CartActivity extends AppCompatActivity implements CartFragment.OnCheckoutClick {
+public class CartActivity extends AppCompatActivity implements CartFragment.OnCheckoutClick, PaymentDialog.OnPaymentDialogOkClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,4 +131,8 @@ public class CartActivity extends AppCompatActivity implements CartFragment.OnCh
         dialogFragment.show(ft, "PaymentDialog");
     }
 
+    @Override
+    public void closeCart() {
+        finish();
+    }
 }
