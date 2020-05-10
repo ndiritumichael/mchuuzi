@@ -1,6 +1,8 @@
 package com.mchuuzi;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.mchuuzi.adapters.ProductsAdapter;
+import com.mchuuzi.interfaces.OnProductItemClickedListener;
 import com.mchuuzi.models.ProductsModel;
 
 import androidx.annotation.NonNull;
@@ -57,7 +60,18 @@ public class ProductFragment extends Fragment {
 
         repository = new Repository();
         productsModelList = repository.getProductsModelList();
-        adapter = new ProductsAdapter(productsModelList);
+        adapter = new ProductsAdapter(productsModelList, new OnProductItemClickedListener() {
+            @Override
+            public void onProductItemClicked(ProductsModel productsModel) {
+                Intent intent = new Intent(getContext(), ProductDetailsActivity.class);
+                intent.putExtra("product", productsModel);
+                startActivity(intent);
+            }
+        });
+
+
+
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL));
